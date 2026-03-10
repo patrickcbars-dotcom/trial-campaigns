@@ -12,6 +12,8 @@ class ContactList extends Model
 
     /**
      * The Contacts that belongs to the Contact List.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<TRelatedModel, $this>
      */
     public function contacts(): BelongsToMany
     {

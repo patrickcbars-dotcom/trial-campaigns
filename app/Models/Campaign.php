@@ -4,28 +4,54 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Campaign extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
     protected $fillable = ['subject', 'body', 'contact_list_id', 'status', 'scheduled_at'];
 
-    
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
     protected $casts = [
         'status' => 'string',
     ];
 
-    public function contactList(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    /**
+     * The ContactList that belong to the Campaign
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<TRelatedModel, $this>
+     */
+    public function contactList(): BelongsTo
     {
         return $this->belongsTo(ContactList::class);
     }
 
-    public function sends(): \Illuminate\Database\Eloquent\Relations\HasMany
+    /**
+     * The CampaignSend's for the Campaign
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<TRelatedModel, $this>
+     */
+    public function sends(): HasMany
     {
         return $this->hasMany(CampaignSend::class);
     }
 
+    /**
+     * The Stats Attribute
+     * 
+     * @return array
+     */
     public function getStatsAttribute(): array
     {
         $sends = $this->sends;

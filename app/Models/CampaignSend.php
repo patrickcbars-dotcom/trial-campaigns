@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CampaignSend extends Model
 {
@@ -18,7 +19,7 @@ class CampaignSend extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<TRelatedModel, $this>
      */
-    public function contact()
+    public function contact(): BelongsTo
     {
         return parent::belongsTo(Contact::class);
     }
@@ -28,7 +29,7 @@ class CampaignSend extends Model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<TRelatedModel, $this>
      */
-    public function campaign()
+    public function campaign(): BelongsTo
     {
         return parent::belongsTo(Campaign::class);
     }
