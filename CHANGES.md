@@ -19,7 +19,7 @@ The Contacts api was create using closures, i could use Controllers, but i think
 I create groups of routes for than endpoint /api/contacts and FormRequests
 
 ## GET /api/contacts 
-Get All paginate Contacts using the  paginate method available on Eloquent API and sorted by name
+Get paginated Contacts using the paginate method available on Eloquent ORM Model class and sorted by name
 
 ## POST /api/contacts
 Create a POST Route, including a FormRequest called ContactPostRequest to validate the request
@@ -28,3 +28,35 @@ Created and Enumerator for the status called ContactStatus for validation and al
 
 ## POST /api/contacts/{id}/unsubscribe
 Created a POST Route with {id} parameter, then retrieved instance of Contact model. Create a method unsubscribe, to store the change on the Database.
+
+# API Contacts Lists
+The Contacts List api was create using closures
+I create groups of routes for than endpoint /api/contact-lists and FormRequests
+
+## GET /api/contact-lists
+Get all Contacts Lists using the paginate method available on Eloquent ORM Model
+
+## POST /api/contact-lists
+Create a POST Route to create a contactList including a FormRequest called ContactListPostRequest to validate the request
+## POST /api/contact-lists/{id}/contacts
+Created a POST Route with {id} parameter containing the contact list and used the ContactPostRequest to validate the new contact to add to contactList
+
+
+# API Campaigns 
+The Contacts List api was create using closures
+I create groups of routes for than endpoint api/campaigns and FormRequests
+
+## GET /api/campaigns
+Get all campaigns with sends using the method get from Eloquent ORM Model
+
+## POST /api/campaigns/
+Create a POST Route to create a campaing, including a FormRequest called CampaignPostRequest to validate the request.
+
+## GET /api/campaigns/{id}
+Created a POST Route with {id} parameter containing the contact list and used the ContactPostRequest to validate the new contact to add to list
+
+## POST /api/campaigns/{id}/dispatch
+Created a POST Route to dispatch a campaign using {id} parameter
+
+
+
