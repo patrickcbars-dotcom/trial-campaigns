@@ -10,6 +10,11 @@ class Contact extends Model
 {
     use HasFactory;
 
+    /**
+     * The list of fillable attributes
+     *
+     * @var array
+     */
     protected $fillable = ['name', 'email', 'status'];
 
     /**

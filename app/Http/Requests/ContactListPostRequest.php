@@ -2,13 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Enums\ContactStatus;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ContactPostRequest extends FormRequest
+class ContactListPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +24,7 @@ class ContactPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:contacts|max:255',
-            'status' => [Rule::enum(ContactStatus::class)],
+            'name' => 'required|max:255'
         ];
     }
 
@@ -40,8 +36,7 @@ class ContactPostRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'A Name is required',
-            'email.required' => 'A Email is required',
+            'name.required' => 'A Name is required'
         ];
     }
 
