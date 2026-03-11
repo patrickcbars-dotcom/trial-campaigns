@@ -12,3 +12,19 @@ Had to create relations for Contact and Campaing for  the CampaingSend, is not p
 
 ## ContactList contacts Relations Missing 
 Ever Campaing has a Contact List, the contact relation was not defined on the model ContactList, Without contact Relation is not possible to reach an audience, and app context will cause and the CampaignService to fail
+
+
+# API Contacts
+The Contacts api was create using closures, i could use Controllers, but i think should be fine for the test..
+I create groups of routes for than endpoint /api/contacts and FormRequests
+
+## GET /api/contacts 
+Get All paginate Contacts using the  paginate method available on Eloquent API and sorted by name
+
+## POST /api/contacts
+Create a POST Route, including a FormRequest called ContactPostRequest to validate the request
+Added override to ContactPostRequest to return json response
+Created and Enumerator for the status called ContactStatus for validation and also to cast the enum field in Contact Model
+
+## POST /api/contacts/{id}/unsubscribe
+Created a POST Route with {id} parameter, then retrieved instance of Contact model. Create a method unsubscribe, to store the change on the Database.
