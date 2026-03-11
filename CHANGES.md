@@ -59,4 +59,11 @@ Created a POST Route with {id} parameter containing the contact list and used th
 Created a POST Route to dispatch a campaign using {id} parameter
 
 
+# Tests
+To recreate database i set tests to use the local database using th e pgpunit.xml config
+
+## Unsubscribe Test
+Create a test called ContactUnsubscribeTest that creates a contact and make http request to route /api/contacts/{id}/unsubscribe, should return 200 http response status code
+
+
 
